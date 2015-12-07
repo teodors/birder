@@ -1,12 +1,12 @@
 ### What is this?
-This is a Node.js module that checks weather a Twitter user might be a bot. To see what checks are made scroll down.
+This is Node.js module that tries to determine if any given Twitter user might be a bot.
 
 You can have a look at [Twipio.io](http://twipio.io) to see a running demo.
 
 ### Getting strted
 No quantum computing here. 
 ```
-$ npm install birder
+npm install birder
 ```
 
 ### Usage

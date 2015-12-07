@@ -30,9 +30,8 @@ Birder.prototype.twitter = function (usernames) {
 
 	for (var i = 0; i < usernames.length; i++) {
 		tasks.push(function (callback) {
-			client.get('statuses/show', {
-				id: id,
-				trim_user: false,
+			client.get('users/show', {
+				screen_name: usernames[i]
 			}, function (error, user, response) {
 				users.push(user);
 
@@ -66,8 +65,7 @@ Birder.prototype.neural = function (users) {
 			description: validator.description(retweet.user),
 			background: validator.background(retweet.user),
 			protected: validator.protected(retweet.user),	
-			links: validator.links(retweet.user),	
-			time: validator.time(retweet, 60)
+			links: validator.links(retweet.user)
 		};
 
 		for(var key in users[i].checks) {
