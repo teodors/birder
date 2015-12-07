@@ -7,7 +7,7 @@ var twitter = require('twitter'),
 
 
 function Birder (options) {
-	this.options = options | {};
+	this.options = options || {};
 
 	this.client = new twitter({
 		consumer_key: this.options.consumer_key,
@@ -23,25 +23,24 @@ function Birder (options) {
  * @param  {String} usernames Unique Twitter usernames.
  * @return {Array}            Return object of Twitter user data for each username.
  */
-Birder.prototype.twitter = function (usernames) {
+Birder.prototype.twitter = function (usernames, callback) {
 	var self = this,
 		users = [],
 		tasks = [];
 
-	for (var i = 0; i < usernames.length; i++) {
+	usernames.forEach(function (username) {
 		tasks.push(function (callback) {
-			client.get('users/show', {
-				screen_name: usernames[i]
+			self.client.get('users/show', {
+				screen_name: username
 			}, function (error, user, response) {
 				users.push(user);
-
 				callback();
 			});
 		});
-	}
+	});
 
-	async.parallel(tasks, function(){
-		return users;
+	async.parallel(tasks, function() {
+		callback(users);
 	});	
 }
 
@@ -53,27 +52,28 @@ Birder.prototype.twitter = function (usernames) {
  */
 Birder.prototype.neural = function (users) {
 	var self = this,
-		fails = 0;
+		tool = new validator; // bad naming 
 
 	for (var i = 0; i < users.length; i++) {
-		fails = 0;
+		var user = users[i],
+			fails = 0;
 
-		users[i].checks = {
-			followers: validator.followers(retweet.user),
-			verified: validator.verified(retweet.user),
-			picture: validator.picture(retweet.user),
-			description: validator.description(retweet.user),
-			background: validator.background(retweet.user),
-			protected: validator.protected(retweet.user),	
-			links: validator.links(retweet.user)
+		user.checks = {
+			followers: tool.followers(user),
+			verified: tool.verified(user),
+			picture: tool.picture(user),
+			description: tool.description(user),
+			background: tool.background(user),
+			protected: tool.protected(user),	
+			links: tool.links(user)
 		};
 
-		for(var key in users[i].checks) {
-			if(users[i].checks[key] == false) fails++;
+		for(var key in user.checks) {
+			if(user.checks[key] == false) fails++;
 		}
 
 		// return ratio
-		users[i].ratio = Math.round((fails/Object.keys(users[i].checks).length) * 100);
+		user.ratio = Math.round((fails/Object.keys(user.checks).length) * 100);
 	}
 
 	return users;
@@ -83,19 +83,19 @@ Birder.prototype.neural = function (users) {
 /**
  * Checks if provided usernames are fake.
  * @param  {Array|String} usernames Unique Twitter usernames.
- * @return {Array} users      		Returns array of user objects.
  */
-Birder.prototype.check = function (usernames) {
+Birder.prototype.check = function (usernames, callback) {
 	var self = this,
 		users = [];
 
 	if (typeof usernames === 'string') {
 		usernames = [usernames];
 	}
-        
-    users.concat(Birder.twitter(usernames));
-
-	return Birder.neural(users);
+    
+    self.twitter(usernames, function (items) {
+    	users = users.concat(items);
+    	callback(self.neural(users));
+    });
 }
 
 
