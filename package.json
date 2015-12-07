@@ -1,0 +1,27 @@
+{
+  "name": "birder",
+  "version": "0.1.0",
+  "description": "A simple bot check of Twitter users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/teodors/birder"
+  },
+  "keywords": [
+    "twitter",
+    "bots"
+  ],
+  "author": "Teodors Zeltiņš <teodors.zeltins@gmail.com> (http://teodors.lv/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teodors/birder/issues"
+  },
+  "dependencies": {
+    "async": "^1.5.0",
+    "moment": "^2.10.6",
+    "twitter": "^1.2.5"
+  }
+}
