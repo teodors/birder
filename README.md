@@ -57,10 +57,10 @@ It makes following checks and returns true or false.
  * **Protected** -  is content protected.
  * **Verified** - is verified.
  * **Links** - is there any links in user profile.
+ * **Age** - how old is account versus existance of Twitter.
 
 There are some more checks that are not yet implemented.
 
- * **Age** - how old is account versus existance of Twitter.
  * **Face** - is user profile picture containing a face.
  * **Tweets** - how many of user tweets are retweets.
  * **Regularity** - how many tweets a user creates per day.

@@ -65,7 +65,8 @@ Birder.prototype.neural = function (users) {
 			description: tool.description(user),
 			background: tool.background(user),
 			protected: tool.protected(user),	
-			links: tool.links(user)
+			links: tool.links(user),
+			age: tool.age(user)
 		};
 
 		for(var key in user.checks) {
