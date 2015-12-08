@@ -1,7 +1,7 @@
 {
   "name": "birder",
   "version": "0.1.0",
-  "description": "A simple bot check of Twitter users.",
+  "description": "Determines if any given Twitter user is a bot.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
