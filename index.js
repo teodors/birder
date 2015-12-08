@@ -33,7 +33,7 @@ Birder.prototype.twitter = function (usernames, callback) {
 			self.client.get('users/show', {
 				screen_name: username
 			}, function (error, user, response) {
-				users.push(user);
+				if(!error) users.push(user);
 				callback();
 			});
 		});

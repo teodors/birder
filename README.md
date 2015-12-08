@@ -1,7 +1,7 @@
 ### What is this?
 [Birder](https://en.wikipedia.org/wiki/Birdwatching#Birding.2C_birdwatching.2C_and_twitching) is a Node.js module that helps to determine if any given Twitter user might be a bot.
 
-You can have a look at [Twipio.io](http://twipio.io) to see a running demo.
+You can have a look at [Twipio](http://lab.teodors.lv/twipio) to see a running demo.
 
 ### Getting strted
 No quantum computing here. 
