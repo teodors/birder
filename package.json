@@ -1,6 +1,6 @@
 {
   "name": "birder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Determines if any given Twitter user is a bot.",
   "main": "index.js",
   "scripts": {
