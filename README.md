@@ -46,9 +46,8 @@ This should return you an array of Twitter user objects with additional fields `
 
 *Note: user objects are returned in unknown order and some might be missing if such Twitter user does not exist.*
 
-
 ### How checks work?
-It makes following checks and returns true or false.
+It makes following checks and returns value between 1 and 0.
 
  * **Followers** - is followers/follwing ratio positive.
  * **First** - is the first tweet a retweet.
@@ -73,7 +72,6 @@ Then, depending on how many checks are made and how many are passed, you get the
 Unforunately, there is no simple and solid way of telling if someone is or is not a bot. If one is truly determined to create a undetectable bot he can. 
 
 That being said, most of the bots are not very sophisticated and patterns emerge. This should red flag most bots. Then again, that's like saying police catches most of the criminals.
-
 
 ### Issues
 Found a bug or better solution? Please report to the issue section.
