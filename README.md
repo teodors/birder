@@ -73,5 +73,11 @@ Unforunately, there is no simple and solid way of telling if someone is or is no
 
 That being said, most of the bots are not very sophisticated and patterns emerge. This should red flag most bots. Then again, that's like saying police catches most of the criminals.
 
+If you are interested in this topic then here are few interesting papers to look at.
+ * [The Rise of Social Bots](http://arxiv.org/pdf/1407.5225v3.pdf)
+ * [A Taste of Tweets: Reverse Engineering Twitter Spammers](http://faculty.cs.tamu.edu/guofei/paper/TwitterRE_ACSAC14.pdf)
+ * [Detecting Automation of Twitter Accounts: Are You a Human, Bot, or Cyborg?](http://www.cs.wm.edu/~hnw/paper/tdsc12b.pdf)
+
+
 ### Issues
 Found a bug or better solution? Please report to the issue section.
